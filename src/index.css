@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0D0D0F;
+  --color-surface: #141418;
+  --color-card: #1A1A22;
+  --color-card-border: #2A2A35;
+  --color-primary-purple: #7B5EA7;
+  --color-primary-orange: #E8956D;
+  
+  --font-sans: "Plus Jakarta Sans", "Inter", "Manrope", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-white antialiased;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .btn-gradient {
+    @apply px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 hover:scale-105;
+    background: linear-gradient(135deg, #8B6BB5 0%, #E8956D 100%);
+  }
+  
+  .btn-outline {
+    @apply px-8 py-3 rounded-full font-semibold border border-white/20 transition-all duration-300 flex items-center gap-2 hover:bg-white/10;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #8B6BB5 0%, #E8956D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: #1A1A22;
+    border: 1px solid #2A2A35;
+    @apply backdrop-blur-md rounded-3xl p-8;
+  }
+
+  .glow-purple {
+    @apply absolute blur-[140px] rounded-full -z-10;
+    background: #7B5EA7;
+    opacity: 0.25;
+  }
+
+  .glow-orange {
+    @apply absolute blur-[140px] rounded-full -z-10;
+    background: #E8956D;
+    opacity: 0.18;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D0D0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2A35;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A3A48;
+}
