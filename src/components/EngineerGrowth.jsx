@@ -18,7 +18,7 @@ const BENEFIT_ICONS = [Target, Users, TrendingUp];
 
 const EngineerGrowth = () => {
   return (
-    <section style={{ background: '#F0EDE8' }} className="py-28 px-6 overflow-hidden">
+    <section id="about" style={{ background: '#F0EDE8' }} className="py-28 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         {/* Left */}
         <motion.div

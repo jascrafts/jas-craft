@@ -1,8 +1,19 @@
-import React from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
+const TO_EMAIL = 'jascrafts72@gmail.com'; // ← change to your email
+
 const CTA = () => {
+  const [email, setEmail] = useState('');
+
+  const handleAudit = () => {
+    const subject = encodeURIComponent('Free Marketing Audit Request');
+    const body = encodeURIComponent(
+      `Hi,\n\nI'd like to request a free marketing audit.\n\nMy email: ${email}\n\nLooking forward to hearing from you!`
+    );
+    window.open(`https://mail.google.com/mail/?view=cm&to=${TO_EMAIL}&su=${subject}&body=${body}`, '_blank');
+  };
   return (
     <section className="py-10 px-6" style={{ background: '#0D0D0F' }}>
       <div className="max-w-7xl mx-auto">
@@ -54,9 +65,13 @@ const CTA = () => {
                 <input
                   type="email"
                   placeholder="Enter your email address"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && handleAudit()}
                   className="flex-1 bg-transparent text-white text-sm px-5 py-3 outline-none placeholder:text-white/40"
                 />
                 <button
+                  onClick={handleAudit}
                   className="flex items-center justify-center gap-2 px-7 py-3 rounded-full text-sm font-bold text-white whitespace-nowrap transition-all hover:scale-105"
                   style={{ background: 'linear-gradient(135deg, #8B6BB5 0%, #E8956D 100%)' }}
                 >

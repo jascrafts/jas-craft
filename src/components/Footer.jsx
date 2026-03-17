@@ -1,9 +1,9 @@
 import { Mail, Phone, MapPin, Instagram, Twitter, Linkedin } from 'lucide-react';
 
 const COLS = [
-  { heading: 'Services', links: ['Digital Marketing', 'Social Media Strategy', 'Brand & Identity', 'Search & SEO', 'Content & Copywriting', 'Marketing Automation'] },
+  { heading: 'Services', links: ['Digital Marketing', 'Social Media Strategy', 'Brand & Identity', 'Paid Ads', 'Search & SEO', 'Content & Copywriting', 'Marketing Automation'] },
   { heading: 'Company', links: ['About Us', 'Our Team', 'Careers', 'Case Studies', 'Blog', 'Contact'] },
-  { heading: 'Resources', links: ['Free Audit', 'Growth Guide', 'Marketing Resources', 'Industry Reports', 'Webinars', 'Newsletter'] },
+  { heading: 'Resources', links: ['Free Audit', 'Growth Guide', 'Marketing Resources', 'Industry Reports', 'Webinars'] },
 ];
 
 const Footer = () => {
@@ -12,16 +12,31 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
-            <div className="text-2xl font-black uppercase tracking-tighter text-white mb-5">OVRL</div>
+            {/* Logo mark + name inline, tagline below */}
+            <div className="flex flex-col mb-5">
+              <div className="flex items-center gap-2">
+                <img
+                  src="/logo.png"
+                  alt="JAS Craft"
+                  style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
+                />
+                <span style={{ color: '#fff', fontSize: '22px', fontWeight: 900, letterSpacing: '-0.01em', lineHeight: 1 }}>
+                  JAS Craft
+                </span>
+              </div>
+              <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '10px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: '6px' }}>
+                Digital Marketing Agency
+              </p>
+            </div>
             <p className="text-sm leading-relaxed mb-7 max-w-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>
               We engineer growth for ambitious brands through strategic marketing, creative excellence, and relentless optimization.
             </p>
             <div className="space-y-3 mb-7">
-              <a href="mailto:hello@ovrl.agency" className="flex items-center gap-3 text-sm hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                <Mail size={14} /> hello@ovrl.agency
+              <a href="mailto:jascrafts72@gmail.com" className="flex items-center gap-3 text-sm hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                <Mail size={14} /> jascrafts72@gmail.com
               </a>
               <a href="tel:+1234567890" className="flex items-center gap-3 text-sm hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                <Phone size={14} /> +1 (234) 567-890
+                <Phone size={14} /> +91 (234) 567-890
               </a>
               <div className="flex items-center gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
                 <MapPin size={14} /> San Francisco, CA

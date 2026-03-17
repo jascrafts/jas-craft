@@ -26,7 +26,7 @@ const posts = [
 ];
 
 const Blog = () => (
-  <section id="journal" className="py-28 px-6" style={{ background: '#0D0D0F' }}>
+  <section id="insights" className="py-28 px-6" style={{ background: '#0D0D0F' }}>
     <div className="max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
         <div>

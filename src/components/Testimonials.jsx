@@ -25,7 +25,7 @@ const reviews = [
 
 const Testimonials = () => {
   return (
-    <section id="about" className="py-28 px-6" style={{ background: '#0D0D0F' }}>
+    <section id="testimonials" className="py-28 px-6" style={{ background: '#0D0D0F' }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-xs font-bold uppercase tracking-[0.3em] mb-4" style={{ color: '#8B6BB5' }}>

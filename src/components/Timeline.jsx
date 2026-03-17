@@ -10,7 +10,7 @@ const STEPS = [
 
 const Timeline = () => {
   return (
-    <section className="py-28 px-6 overflow-hidden" style={{ background: '#0D0D0F' }}>
+    <section id="process" className="py-28 px-6 overflow-hidden" style={{ background: '#0D0D0F' }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-7xl font-black uppercase text-white mb-4">How We Work</h2>
