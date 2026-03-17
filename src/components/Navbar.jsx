@@ -58,7 +58,7 @@ const Navbar = () => {
       <div
         className="rounded-full px-8 py-2 flex items-center justify-between transition-all duration-300"
         style={{
-          background: scrolled ? 'rgba(20,20,24,0.95)' : 'rgba(20,20,24,0.7)',
+          background: scrolled ? 'rgba(20,20,24,0.75)' : 'rgba(20,20,24,0.35)',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255,255,255,0.07)',
           boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
