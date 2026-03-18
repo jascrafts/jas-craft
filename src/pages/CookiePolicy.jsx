@@ -1,24 +1,60 @@
+const Section = ({ title, children }) => (
+  <div style={{ marginBottom: '40px' }}>
+    <h2 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: '#8B6BB5' }}>{title}</h2>
+    <div style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.9, fontSize: '15px' }}>{children}</div>
+  </div>
+);
+
 const CookiePolicy = () => (
   <div style={{ background: '#0D0D0F', minHeight: '100vh', color: '#fff', padding: '80px 24px' }}>
-    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-      <a href="/" style={{ color: '#8B6BB5', fontSize: '14px', fontWeight: 700, textDecoration: 'none', display: 'inline-block', marginBottom: '32px' }}>← Back to Home</a>
-      <h1 style={{ fontSize: '48px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '8px' }}>Cookie Policy</h1>
-      <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '14px', marginBottom: '48px' }}>Last updated: March 2026</p>
+    <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+      <a href="/" style={{ color: '#8B6BB5', fontSize: '14px', fontWeight: 700, textDecoration: 'none', display: 'inline-block', marginBottom: '40px' }}>← Back to Home</a>
 
-      {[
-        { title: '1. What Are Cookies', body: 'Cookies are small text files stored on your device when you visit a website. They help websites remember your preferences and improve your browsing experience.' },
-        { title: '2. How We Use Cookies', body: 'We use cookies to understand how visitors interact with our website, remember your preferences, analyze site traffic and performance, and provide a better user experience.' },
-        { title: '3. Types of Cookies We Use', body: 'Essential Cookies: Required for the website to function properly. Analytics Cookies: Help us understand how visitors use our site (e.g., Google Analytics). Preference Cookies: Remember your settings and preferences for future visits.' },
-        { title: '4. Third-Party Cookies', body: 'Some cookies on our site are set by third-party services such as Google Analytics. These third parties have their own privacy policies governing the use of this information.' },
-        { title: '5. Managing Cookies', body: 'You can control and manage cookies through your browser settings. Most browsers allow you to refuse cookies or delete existing ones. Note that disabling cookies may affect the functionality of our website.' },
-        { title: '6. Updates to This Policy', body: 'We may update this Cookie Policy from time to time. Any changes will be posted on this page with an updated revision date.' },
-        { title: '7. Contact Us', body: 'If you have questions about our use of cookies, please contact us at jascrafts72@gmail.com.' },
-      ].map((s, i) => (
-        <div key={i} style={{ marginBottom: '36px' }}>
-          <h2 style={{ fontSize: '18px', fontWeight: 800, marginBottom: '10px', color: '#8B6BB5' }}>{s.title}</h2>
-          <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontSize: '15px' }}>{s.body}</p>
-        </div>
-      ))}
+      <h1 style={{ fontSize: '52px', fontWeight: 900, textTransform: 'uppercase', marginBottom: '6px' }}>Cookie Policy</h1>
+      <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '13px', marginBottom: '56px' }}>Last updated: March 2026 · JAS Craft Digital Marketing Agency</p>
+
+      <Section title="Cookies — the digital kind">
+        <p>No, not the edible ones. Cookies are small text files that get stored on your device when you visit a website. They're used by pretty much every site on the internet, and ours is no different. This page explains what cookies we use and why.</p>
+      </Section>
+
+      <Section title="What cookies do we use?">
+        <p>We keep it minimal. Here's what's running on our site:</p>
+        <ul style={{ paddingLeft: '20px', marginTop: '10px', lineHeight: 2.4 }}>
+          <li><strong style={{ color: 'rgba(255,255,255,0.85)' }}>Essential cookies</strong> — These are required for the site to work. Things like remembering your session or keeping the page from breaking. You can't opt out of these without the site stopping to function.</li>
+          <li><strong style={{ color: 'rgba(255,255,255,0.85)' }}>Analytics cookies</strong> — We use basic analytics (like Google Analytics) to understand how people find and use our site. This helps us figure out what's working and what needs improvement. The data is aggregated and anonymous — we can't identify you from it.</li>
+          <li><strong style={{ color: 'rgba(255,255,255,0.85)' }}>Preference cookies</strong> — These remember small things, like whether you've dismissed a banner or your display preferences. They make repeat visits a bit smoother.</li>
+        </ul>
+      </Section>
+
+      <Section title="Third-party cookies">
+        <p>Some cookies on our site come from third-party services we use — like Google Analytics or embedded content. These third parties set their own cookies and have their own privacy policies. We don't control what they do with that data, but we only use reputable services that take privacy seriously.</p>
+      </Section>
+
+      <Section title="How to manage or disable cookies">
+        <p>You're in control. Every major browser lets you view, manage, and delete cookies. Here's how to do it in the most common ones:</p>
+        <ul style={{ paddingLeft: '20px', marginTop: '10px', lineHeight: 2.2 }}>
+          <li>Chrome: Settings → Privacy and Security → Cookies</li>
+          <li>Firefox: Settings → Privacy & Security → Cookies and Site Data</li>
+          <li>Safari: Preferences → Privacy → Manage Website Data</li>
+          <li>Edge: Settings → Cookies and Site Permissions</li>
+        </ul>
+        <br />
+        <p>Keep in mind that disabling cookies — especially essential ones — may affect how parts of our site work. Some features might not load correctly without them.</p>
+      </Section>
+
+      <Section title="Do we track you across other sites?">
+        <p>No. We don't use cross-site tracking cookies or sell any data to advertisers. Our analytics are purely for understanding our own website's performance, not for building profiles on individual users.</p>
+      </Section>
+
+      <Section title="Updates to this policy">
+        <p>If we change how we use cookies in a meaningful way, we'll update this page and the date at the top. We won't add new tracking without being transparent about it.</p>
+      </Section>
+
+      <Section title="Still have questions?">
+        <p>Cookies can be a confusing topic. If you want to know more about what's running on our site or have concerns, just email us.</p>
+        <br />
+        <p>📧 <span style={{ color: '#8B6BB5' }}>jascrafts72@gmail.com</span></p>
+      </Section>
     </div>
   </div>
 );

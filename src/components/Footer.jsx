@@ -66,7 +66,7 @@ const Footer = () => {
           ))}
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 text-xs uppercase tracking-widest font-bold" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.2)' }}>
-          <div>?? 2026 OVRL. All rights reserved.</div>
+          <div>© 2026 JAS Craft. All rights reserved.</div>
           <div className="flex gap-6">
             {[
               { label: 'Privacy Policy', href: '/privacy-policy' },
