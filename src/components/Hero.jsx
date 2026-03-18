@@ -210,7 +210,7 @@ const Hero = () => (
         className="text-xs font-bold uppercase tracking-[0.3em] mb-8"
         style={{ color: 'rgba(255,255,255,0.35)' }}
       >
-        Growth Agency — Est. 2012
+        Growth Agency — Est. 2026
       </motion.p>
 
       <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
@@ -220,7 +220,7 @@ const Hero = () => (
           <span className="block" style={{
             background: 'linear-gradient(135deg, #8B6BB5 0%, #E8956D 100%)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-          }}>GROW.</span>
+          }}>GROW</span>
         </h1>
       </motion.div>
 
@@ -233,12 +233,14 @@ const Hero = () => (
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="flex items-center gap-4 mb-20">
         <button
+          onClick={() => document.getElementById('cta-section')?.scrollIntoView({ behavior: 'smooth' })}
           className="flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all hover:scale-105"
           style={{ background: 'linear-gradient(135deg, #8B6BB5 0%, #E8956D 100%)' }}
         >
           Get Free Audit <ArrowRight size={16} />
         </button>
         <button
+          onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
           className="px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all hover:bg-white/10"
           style={{ border: '1px solid rgba(255,255,255,0.2)' }}
         >
@@ -252,9 +254,9 @@ const Hero = () => (
         style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
       >
         {[
-          { value: '340+',   label: 'Clients Growth' },
+          { value: '50+',   label: 'Clients Growth' },
           { value: '98%',    label: 'Retention Rate' },
-          { value: '12 Yrs', label: 'In Business' },
+          { value: '5+ Yrs', label: 'In Business' },
         ].map((s, i) => (
           <div key={i}>
             <div className="text-3xl font-black mb-1" style={{

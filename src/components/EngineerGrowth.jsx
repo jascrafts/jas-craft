@@ -2,16 +2,16 @@ import { motion } from 'framer-motion';
 import { Target, Users, TrendingUp } from 'lucide-react';
 
 const stats = [
-  { value: '340+', label: 'Projects Delivered', color: '#E8956D' },
+  { value: '50+', label: 'Projects Delivered', color: '#E8956D' },
   { value: '98%', label: 'Retention', color: '#8B6BB5' },
-  { value: '12+', label: 'Experience', color: '#fff' },
-  { value: '24', label: 'Team Specialists', color: '#E8956D' },
+  { value: '5+', label: 'Experience', color: '#fff' },
+  { value: '21', label: 'Team Specialists', color: '#E8956D' },
 ];
 
 const BENEFITS = [
-  { title: 'Results over reports', desc: 'We care about growth metrics that matter, not vanity numbers.' },
-  { title: 'Data-led, human-crafted', desc: 'Strategic decisions backed by data, executed with creative excellence.' },
-  { title: 'Long-term partnership', desc: 'We build lasting relationships, not just campaigns.' },
+  { title: 'Results over reports', desc: 'We focus on business outcomes that matter — leads, conversions, and sustainable growth, not vanity metrics.' },
+  { title: 'Data-led, human-crafted', desc: 'Every strategic move is backed by insights, while creativity ensures your brand stands out.' },
+  { title: 'Long-term partnership', desc: 'In 2026, strong brands are built through partnerships that evolve with business goals — not one-time campaign delivery.' },
 ];
 
 const BENEFIT_ICONS = [Target, Users, TrendingUp];
@@ -29,17 +29,17 @@ const EngineerGrowth = () => {
         >
           <h2 className="text-4xl md:text-5xl font-black leading-tight text-black mb-8">
             We don't just run campaigns. We{' '}
-            <span style={{ color: '#7B5EA7' }}>engineer</span> growth —{' '}
-            obsessively.
+            <span style={{ color: '#7B5EA7' }}>engineer</span> growth with{' '}
+            precision.
           </h2>
           <p className="text-black/50 text-base leading-relaxed mb-6">
-            Since 2012, we've partnered with ambitious brands to unlock exponential growth through strategic marketing, creative excellence, and relentless optimization.
+            Since  2026 and beyond, In today’s fast-moving digital landscape, brands need more than visibility — they need scalable growth built on strategy, creativity, and continuous optimization.
           </p>
           <p className="text-black/50 text-base leading-relaxed mb-10">
-            We're not an agency that takes orders. We're a growth partner that challenges assumptions, tests hypotheses, and delivers measurable results.
-          </p>
+            We are not an agency that simply follows briefs. We act as a growth partner — questioning assumptions, testing ideas, and building strategies that deliver measurable business impact.
+          </p>  
 
-          <ul className="space-y-6">
+          <ul className="space-y-6" >
             {BENEFITS.map((b, i) => {
               const Icon = BENEFIT_ICONS[i];
               return (

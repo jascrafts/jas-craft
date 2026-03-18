@@ -6,41 +6,43 @@ import { Play, X, ExternalLink } from 'lucide-react';
 // id: YouTube video ID from https://www.youtube.com/watch?v=VIDEO_ID
 const VIDEOS = [
   {
-    id: 'dQw4w9WgXcQ',
-    brand: 'AKS',
-    industry: 'Auto Auctions & Marketplaces',
-    title: 'Unlocking New Seller Revenue at Scale',
+    id: 'a9t97923JRc',
+    brand: 'BJMC',
+    industry: 'Radio Jockey',
+    title: 'Become a Radio Jockey with BJMC at LLDIMS | Admissions Open 2025-26 | GGSIPU',
     ongoing: false,
     stats: [
-      { value: '44',    label: 'Meetings Booked' },
-      { value: '$35K+', label: 'Revenue', purple: true },
+      { value: '46%',    label: 'popular' },
+      { value: '21K+', label: 'views', purple: true },
     ],
   },
   {
-    id: 'ScMzIvxBSi4',
-    brand: 'UNORE',
-    industry: 'Design Agency',
-    title: 'Scaling Meetings Without Hiring In-House',
+    id: '/abs.mp4',
+    thumb: '/absthumb.png',
+    brand: 'ABS',
+    industry: 'HeadPhones',
+    title: 'Wherever you go, let the music lead the way. In a World Full of Noise, I Choose My Own Melody',
     ongoing: true,
     stats: [
-      { value: '36',   label: 'Meetings Booked' },
-      { value: '650%', label: 'ROI', purple: true },
+      { value: '26',   label: 'Meetings Booked' },
+      { value: '67%', label: 'ROI', purple: true },
     ],
   },
   {
-    id: 'ysz5S6PUM-U',
-    brand: 'Arounda',
-    industry: 'UI/UX & Development',
-    title: 'From Cold Outreach to a Predictable Pipeline',
+    id: 'N4seP_e_3c4',
+    brand: 'IPL',
+    industry: 'Sports Flashes',
+    title: 'Steve Smith कर सकते हैं IPL में वापसी, क्या मिलेगी LSG की Captaincy?',
     ongoing: false,
     stats: [
-      { value: '62',    label: 'Meetings Booked' },
-      { value: '$112K', label: 'Revenue', purple: true },
+      { value: '43%',    label: 'popular' },
+      { value: '12K', label: 'views', purple: true },
     ],
   },
 ];
 
-const thumb = (id) => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+const isLocal = (id) => id.startsWith('/');
+const thumb = (id) => isLocal(id) ? null : `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
 
 function VideoCard({ v, index, onPlay }) {
   return (
@@ -54,12 +56,28 @@ function VideoCard({ v, index, onPlay }) {
     >
       {/* Thumbnail */}
       <div className="relative rounded-2xl overflow-hidden mb-4" style={{ aspectRatio: '16/9', background: '#141418' }}>
-        <img
-          src={thumb(v.id)}
-          alt={v.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={e => { e.target.src = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`; }}
-        />
+        {isLocal(v.id) ? (
+          v.thumb ? (
+            <img
+              src={v.thumb}
+              alt={v.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <video
+              src={v.id}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              muted playsInline preload="metadata"
+            />
+          )
+        ) : (
+          <img
+            src={thumb(v.id)}
+            alt={v.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            onError={e => { e.target.src = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`; }}
+          />
+        )}
         <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.38)' }} />
 
         {/* Brand badge */}
@@ -142,14 +160,16 @@ function VideoModal({ v, onClose }) {
               <h3 className="text-sm font-bold text-white mt-0.5">{v.title}</h3>
             </div>
             <div className="flex items-center gap-2">
-              <a
-                href={`https://www.youtube.com/watch?v=${v.id}`}
-                target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
-                style={{ border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }}
-              >
-                <ExternalLink size={14} />
-              </a>
+              {!isLocal(v.id) && (
+                <a
+                  href={`https://www.youtube.com/watch?v=${v.id}`}
+                  target="_blank" rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
+                  style={{ border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }}
+                >
+                  <ExternalLink size={14} />
+                </a>
+              )}
               <button
                 onClick={onClose}
                 className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
@@ -160,12 +180,21 @@ function VideoModal({ v, onClose }) {
             </div>
           </div>
           <div style={{ aspectRatio: '16/9' }}>
-            <iframe
-              src={`https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`}
-              title={v.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen className="w-full h-full" style={{ border: 'none' }}
-            />
+            {isLocal(v.id) ? (
+              <video
+                src={v.id}
+                autoPlay controls
+                className="w-full h-full"
+                style={{ border: 'none', background: '#000' }}
+              />
+            ) : (
+              <iframe
+                src={`https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`}
+                title={v.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen className="w-full h-full" style={{ border: 'none' }}
+              />
+            )}
           </div>
         </motion.div>
       </motion.div>

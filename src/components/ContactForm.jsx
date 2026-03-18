@@ -86,7 +86,7 @@ ${form.message}`
 
             <div className="grid grid-cols-2 gap-6">
               {[
-                { value: '500+', label: 'Projects Completed' },
+                { value: '50+', label: 'Projects Completed' },
                 { value: '98%', label: 'Client Satisfaction' },
               ].map((s, i) => (
                 <div key={i}>

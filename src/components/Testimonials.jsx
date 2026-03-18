@@ -4,22 +4,22 @@ import { Star } from 'lucide-react';
 
 const reviews = [
   {
-    name: 'Sarah Johnson',
-    role: 'CEO, TechFlow',
-    text: 'Working with JSS was a game-changer for our brand. Our revenue increased by 150% within the first six months of our partnership.',
-    initials: 'SJ',
+    name: 'Vivek Sharma',
+    role: 'CEO, ABS Headphones',
+    text: 'A big shoutout to Jas Craft for the amazing marketing work they’ve done for us. They truly understood our vision and translated it into a successful campaign. It’s rare to find a team so dedicated and results-driven. Thank you for helping us reach new heights.',
+    initials: 'VS',
   },
   {
-    name: 'Michael Chen',
-    role: 'Marketing Director, Lumina',
-    text: 'The technical precision and creative flair that JSS brings to the table is unmatched. They truly understand what it means to engineer growth.',
-    initials: 'MC',
+    name: 'Chaudhary properties',
+    role: 'CEO, Anurag',
+    text: 'A huge thank you to the Jas Craft team for their exceptional marketing support. Their strategic approach and creativity have been instrumental in our recent growth. The results speak for themselves. Highly recommended for any brand looking to scale.',
+    initials: 'CP',
   },
   {
-    name: 'Emma Davis',
-    role: 'Founder, Bloom Digital',
-    text: 'Their strategic approach to digital marketing helped us dominate a highly competitive market. We couldn\'t be happier with the results.',
-    initials: 'ED',
+    name: 'Nitesh sharma',
+    role: 'Founder',
+    text: 'A massive shoutout to the team at Jas Craft! They recently created a video for our shop, Mental Momos, and the response has been incredible—it went viral! Their creativity and execution truly captured our brands vibe. Highly recommend them for anyone looking to make a real impact.',
+    initials: 'NS',
   },
 ];
 
@@ -47,9 +47,25 @@ const Testimonials = () => {
             >
               <div>
                 <div className="flex gap-1 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} fill="#E8956D" color="#E8956D" />
-                  ))}
+                  {[...Array(5)].map((_, i) => {
+                    // Last card (idx===2): show 4 full + 1 half star
+                    const isHalf = idx === 2 && i === 4;
+                    return (
+                      <span key={i} style={{ position: 'relative', display: 'inline-block', width: 14, height: 14 }}>
+                        <Star size={14} fill="rgba(232,149,109,0.25)" color="rgba(232,149,109,0.25)" />
+                        {!isHalf && (
+                          <span style={{ position: 'absolute', inset: 0 }}>
+                            <Star size={14} fill="#E8956D" color="#E8956D" />
+                          </span>
+                        )}
+                        {isHalf && (
+                          <span style={{ position: 'absolute', inset: 0, overflow: 'hidden', width: '50%' }}>
+                            <Star size={14} fill="#E8956D" color="#E8956D" />
+                          </span>
+                        )}
+                      </span>
+                    );
+                  })}
                 </div>
                 <p className="text-base leading-relaxed mb-8 italic" style={{ color: 'rgba(255,255,255,0.7)' }}>
                   "{review.text}"

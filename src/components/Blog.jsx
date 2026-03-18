@@ -3,25 +3,31 @@ import { ArrowRight, Calendar, Clock } from 'lucide-react';
 
 const posts = [
   {
-    category: 'Growth Strategy',
-    title: 'How to Engineer 3x Growth in 1 Month',
-    excerpt: 'The exact framework we use to help brands scale faster with data-driven marketing strategies.',
-    date: 'Mar 1, 2026',
-    readTime: '8 min read',
+    category: 'cricit',
+    title: 'मेजर लीग क्रिकेट में चमके सौरभ नेत्रवलकर, ट्रेविस हैड और स्मिथ ने भी लगाया रनों का अम्बार',
+    excerpt: 'मेजर लीग क्रिकेट (एमएलसी) 2024 का सीजन बेहद रोमांचक रहा। इस टूर्नामेंट में कुल छह टीमों ने भाग लिया और सभी टीमों ने अपने बेहतरीन प्रदर्शन से दर्शकों का दिल जीता।',
+    date: 'July 30, 2024',
+    readTime: '18 min read',
+    url: 'https://cricit.com/cricket/%E0%A4%AE%E0%A5%87%E0%A4%9C%E0%A4%B0-%E0%A4%B2%E0%A5%80%E0%A4%97-%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%95%E0%A5%87%E0%A4%9F-%E0%A4%AE%E0%A5%87%E0%A4%82-%E0%A4%9A%E0%A4%AE%E0%A4%95%E0%A5%87/',
+    thumb: '/blogcrickt.jpg',
   },
   {
-    category: 'Performance Marketing',
-    title: 'Why Most Agencies Get ROAS Wrong',
-    excerpt: 'Understanding true marketing ROI beyond surface-level metrics and vanity numbers.',
-    date: 'Feb 25, 2026',
-    readTime: '6 min read',
+    category: 'cricit',
+    title: 'India start campaign sith 7-wicket win over Pakistan',
+    excerpt: 'India Women\'s Cricket Team started their Asia Cup campaign with a dominant performance against Pakistan Women.',
+    date: 'July 20, 2024',
+    readTime: '14 min read',
+    url: 'https://cricit.com/cricket/india-start-campaign-sith-7-wicket-win-over-pakistan/',
+    thumb: '/WomenCricket.jpg',
   },
   {
-    category: 'Brand Building',
-    title: 'Building a Brand That Lasts in 2026',
-    excerpt: 'Modern brand strategy that combines emotional connection with performance-driven growth.',
-    date: 'Feb 18, 2026',
-    readTime: '10 min read',
+    category: 'cricit',
+    title: 'Hardik pandya and Natasha confirm divorce',
+    excerpt: 'Hardik Pandya, the star Indian all-rounder and his wife Natasha Stankovic announced their divorce on Thursday, July 18.',
+    date: 'July 19, 2024',
+    readTime: '7 min read',
+    url: 'https://cricit.com/cricket/hardik-pandya-and-natasha-confirm-divorce/',
+    thumb: '/hrdikpandya.jpg',
   },
 ];
 
@@ -43,24 +49,26 @@ const Blog = () => (
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {posts.map((post, idx) => (
-          <motion.div
+          <motion.a
             key={idx}
+            href={post.url}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             className="group rounded-2xl overflow-hidden cursor-pointer transition-all"
-            style={{ background: '#141418', border: '1px solid #2A2A35' }}
+            style={{ background: '#141418', border: '1px solid #2A2A35', textDecoration: 'none', display: 'block' }}
             onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(139,107,181,0.35)'}
             onMouseLeave={e => e.currentTarget.style.borderColor = '#2A2A35'}
           >
-            <div
-              className="h-48 relative flex items-center justify-center overflow-hidden"
-              style={{ background: 'linear-gradient(135deg, rgba(123,94,167,0.25) 0%, rgba(232,149,109,0.15) 100%)' }}
-            >
-              <span className="text-3xl font-black tracking-tighter" style={{ color: 'rgba(255,255,255,0.06)' }}>
-                OVRL
-              </span>
+            <div className="h-48 relative overflow-hidden">
+              <img
+                src={post.thumb}
+                alt={post.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
             <div className="p-7">
               <span className="text-xs font-black uppercase tracking-widest mb-4 block" style={{ color: '#8B6BB5' }}>
@@ -80,7 +88,7 @@ const Blog = () => (
                 <span className="flex items-center gap-1.5"><Clock size={12} /> {post.readTime}</span>
               </div>
             </div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
     </div>

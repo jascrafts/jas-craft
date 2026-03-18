@@ -15,7 +15,7 @@ const CTA = () => {
     window.open(`https://mail.google.com/mail/?view=cm&to=${TO_EMAIL}&su=${subject}&body=${body}`, '_blank');
   };
   return (
-    <section className="py-10 px-6" style={{ background: '#0D0D0F' }}>
+    <section id="cta-section" className="py-10 px-6" style={{ background: '#0D0D0F' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

@@ -36,15 +36,19 @@ const Footer = () => {
                 <Mail size={14} /> jascrafts72@gmail.com
               </a>
               <a href="tel:+1234567890" className="flex items-center gap-3 text-sm hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                <Phone size={14} /> +91 (234) 567-890
+                <Phone size={14} /> +91 9217233989
               </a>
               <div className="flex items-center gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
-                <MapPin size={14} /> San Francisco, CA
+                <MapPin size={14} /> New Delhi, IN
               </div>
             </div>
             <div className="flex gap-3">
-              {[Linkedin, Twitter, Instagram].map((Icon, i) => (
-                <a key={i} href="#" className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-white/5 transition-colors" style={{ border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.4)' }}>
+              {[
+                { Icon: Linkedin, href: '#' },
+                { Icon: Twitter, href: '#' },
+                { Icon: Instagram, href: 'https://www.instagram.com/jas_click_craft?igsh=MXFyMHRxanp2OGd6Nw==' },
+              ].map(({ Icon, href }, i) => (
+                <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-white/5 transition-colors" style={{ border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.4)' }}>
                   <Icon size={15} />
                 </a>
               ))}
@@ -55,7 +59,7 @@ const Footer = () => {
               <h4 className="text-xs font-black uppercase tracking-widest text-white mb-5">{col.heading}</h4>
               <ul className="space-y-3">
                 {col.links.map((link) => (
-                  <li key={link}><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.35)' }}>{link}</a></li>
+                  <li key={link}><span className="text-sm" style={{ color: 'rgba(255,255,255,0.35)' }}>{link}</span></li>
                 ))}
               </ul>
             </div>
@@ -64,8 +68,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 text-xs uppercase tracking-widest font-bold" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.2)' }}>
           <div>?? 2026 OVRL. All rights reserved.</div>
           <div className="flex gap-6">
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
-              <a key={item} href="#" className="hover:text-white transition-colors">{item}</a>
+            {[
+              { label: 'Privacy Policy', href: '/privacy-policy' },
+              { label: 'Terms of Service', href: '/terms-of-service' },
+              { label: 'Cookie Policy', href: '/cookie-policy' },
+            ].map((item) => (
+              <a key={item.label} href={item.href} className="hover:text-white transition-colors">{item.label}</a>
             ))}
           </div>
         </div>

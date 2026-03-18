@@ -17,9 +17,9 @@ const scrollTo = (id) => {
 };
 
 const Navbar = () => {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [activeId, setActiveId]   = useState('');
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -27,7 +27,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // IntersectionObserver — highlight whichever section is most visible
   useEffect(() => {
     const observers = [];
     LINKS.forEach(({ id }) => {
@@ -58,24 +57,21 @@ const Navbar = () => {
       <div
         className="rounded-full px-8 py-2 flex items-center justify-between transition-all duration-300"
         style={{
-          background: scrolled ? 'rgba(20,20,24,0.75)' : 'rgba(20,20,24,0.35)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255,255,255,0.07)',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+          background: scrolled ? 'rgba(13,13,15,0.6)' : 'rgba(13,13,15,0.25)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          border: '1px solid rgba(255,255,255,0.08)',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
         }}
       >
-        {/* Logo + Brand Name — clicks scroll to top */}
+        {/* Logo — clicks scroll to top */}
         <a
           href="#"
           onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           className="flex items-center gap-2"
           style={{ textDecoration: 'none' }}
         >
-          <img
-            src="/logo.png"
-            alt="JAS Craft"
-            style={{ height: '36px', width: 'auto', objectFit: 'contain', display: 'block' }}
-          />
+          <img src="/logo.png" alt="JAS Craft" style={{ height: '36px', width: 'auto', objectFit: 'contain', display: 'block' }} />
           <span style={{ color: '#fff', fontSize: '15px', fontWeight: 900, letterSpacing: '-0.01em' }}>JAS Craft</span>
         </a>
 
@@ -88,14 +84,12 @@ const Navbar = () => {
                 key={id}
                 onClick={() => handleLink(id)}
                 className="text-sm font-medium transition-colors relative"
-                style={{ color: isActive ? '#fff' : 'rgba(255,255,255,0.5)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                style={{ color: isActive ? '#fff' : 'rgba(255,255,255,0.55)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               >
                 {label}
                 {isActive && (
-                  <span
-                    className="absolute -bottom-1 left-0 right-0 h-px rounded-full"
-                    style={{ background: 'linear-gradient(90deg, #8B6BB5, #E8956D)' }}
-                  />
+                  <span className="absolute -bottom-1 left-0 right-0 h-px rounded-full"
+                    style={{ background: 'linear-gradient(90deg, #8B6BB5, #E8956D)' }} />
                 )}
               </button>
             );
@@ -122,12 +116,10 @@ const Navbar = () => {
       {menuOpen && (
         <div
           className="mt-2 rounded-2xl px-6 py-6 flex flex-col gap-4 md:hidden"
-          style={{ background: 'rgba(20,20,24,0.97)', border: '1px solid rgba(255,255,255,0.07)' }}
+          style={{ background: 'rgba(13,13,15,0.92)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.07)' }}
         >
           {LINKS.map(({ label, id }) => (
-            <button
-              key={id}
-              onClick={() => handleLink(id)}
+            <button key={id} onClick={() => handleLink(id)}
               className="text-left text-sm font-medium transition-colors"
               style={{ color: activeId === id ? '#fff' : 'rgba(255,255,255,0.6)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
