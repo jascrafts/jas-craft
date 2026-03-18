@@ -15,7 +15,7 @@ const Timeline = () => {
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-7xl font-black uppercase text-white mb-4">How We Work</h2>
           <p className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            A proven process refined over 12 years and 340+ successful partnerships
+            A proven process refined over 5 years and 50+ successful partnerships
           </p>
         </div>
 
