@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, Clock } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 
 const posts = [
   {
@@ -34,17 +34,11 @@ const posts = [
 const Blog = () => (
   <section id="insights" className="py-28 px-6" style={{ background: '#0D0D0F' }}>
     <div className="max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
-        <div>
-          <h2 className="text-5xl md:text-7xl font-black uppercase text-white mb-3">Insights</h2>
-          <p className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            Strategies, insights, and ideas from our team of growth experts
-          </p>
-        </div>
-        <button className="flex items-center gap-2 text-sm font-bold transition-colors group" style={{ color: '#8B6BB5' }}>
-          View All Articles
-          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-        </button>
+      <div className="text-center mb-16">
+        <h2 className="text-5xl md:text-7xl font-black uppercase text-white mb-3">Insights</h2>
+        <p className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          Strategies, insights, and ideas from our team of growth experts
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

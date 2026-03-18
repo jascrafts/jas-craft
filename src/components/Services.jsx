@@ -18,10 +18,10 @@ const Services = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-16 text-center"
         >
           <h2 className="text-5xl md:text-7xl font-black uppercase text-white mb-4">Our Craft</h2>
-          <p className="text-base max-w-lg" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-base mx-auto max-w-lg" style={{ color: 'rgba(255,255,255,0.4)' }}>
             We combine strategic thinking with creative execution to deliver growth that lasts.
           </p>
         </motion.div>
