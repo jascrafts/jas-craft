@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
+
 import avatar1 from '../assets/avatar3.jpg';
 import avatar2 from '../assets/avatar2.jpg';
 import avatar3 from '../assets/avatar1.jpg';
@@ -153,8 +153,7 @@ ${form.message}`
               <button type="submit"
                 className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-sm font-bold transition-all hover:opacity-95"
                 style={{ background: 'linear-gradient(135deg, #8B6BB5 0%, #E8956D 100%)', color: '#fff' }}>
-                Get Started
-                <Send size={16} />
+                Schedule a Call 
               </button>
             </form>
           </div>

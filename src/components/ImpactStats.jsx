@@ -29,10 +29,10 @@ const VIDEOS = [
     ],
   },
   {
-    id: 'N4seP_e_3c4',
-    brand: 'IPL',
-    industry: 'Sports Flashes',
-    title: 'Steve Smith कर सकते हैं IPL में वापसी, क्या मिलेगी LSG की Captaincy?',
+    id: 'tbrCUDAki6M',
+    brand: 'NEET',
+    industry: 'collage',
+    title: 'NEET PG 2025 Result Out 🚨 | Score, Rank, Cut-Off & Counselling Updates',
     ongoing: false,
     stats: [
       { value: '43%',    label: 'popular' },
