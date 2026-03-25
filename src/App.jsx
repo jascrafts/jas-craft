@@ -18,6 +18,7 @@ import BlogPage from './pages/BlogPage';
 import BlogPost from './pages/BlogPost';
 import TeamPage from './pages/TeamPage';
 import WorkPage from './pages/WorkPage';
+import ScrollToTop from './components/ScrollToTop';
 
 const Home = () => (
   <div className="min-h-screen text-white" style={{ background: '#0D0D0F' }}>
@@ -41,6 +42,7 @@ const Home = () => (
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
