@@ -1,16 +1,23 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, Clock } from 'lucide-react';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import blogPosts from '../data/blogPosts';
 
 const Blog = () => (
   <section id="insights" className="py-28 px-6" style={{ background: '#0D0D0F' }}>
     <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-16">
+      <div className="text-center mb-16 relative">
         <h2 className="text-5xl md:text-7xl font-black uppercase text-white mb-3">Insights</h2>
         <p className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
           Strategies, insights, and ideas from our team of growth experts
         </p>
+        <Link
+          to="/blog"
+          className="inline-flex items-center gap-2 text-sm font-bold px-6 py-2.5 rounded-xl transition-all hover:opacity-80 mt-6 md:mt-0 md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2"
+          style={{ background: 'linear-gradient(135deg, #8B6BB5, #E8956D)', color: '#fff' }}
+        >
+          View All Articles <ArrowRight size={15} />
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

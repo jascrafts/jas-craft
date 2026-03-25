@@ -1,11 +1,46 @@
-// ─── ADD NEW BLOG POSTS HERE ─────────────────────────────────────────────────
-// slug: URL-friendly identifier (no spaces, use hyphens)
-// thumb: image path from /public or full URL
-// content: array of { type, text } blocks
-//   types: 'paragraph', 'heading', 'subheading', 'quote', 'list'
-//   for 'list': use { type: 'list', items: ['item1', 'item2'] }
+// ═══════════════════════════════════════════════════════════════
+//  HOW TO ADD A NEW BLOG POST
+// ═══════════════════════════════════════════════════════════════
+//
+//  1. Copy the template below
+//  2. Paste it at the TOP of the blogPosts array (newest first)
+//  3. Fill in your details
+//  4. Save the file — done!
+//
+// ── TEMPLATE ────────────────────────────────────────────────────
+//
+//  {
+//    slug:     'my-post-title',          // URL: /blog/my-post-title  (no spaces, use hyphens)
+//    category: 'Marketing',              // Shown as a badge on the card
+//    title:    'My Post Title',          // Full title
+//    excerpt:  'Short summary...',       // 1-2 sentences shown on the card
+//    date:     'March 25, 2026',         // Display date
+//    readTime: '5 min read',             // Estimated read time
+//    thumb:    '/my-image.jpg',          // Image from /public folder  OR  full URL
+//    content: [
+//      { type: 'paragraph',  text: 'Your opening paragraph...' },
+//      { type: 'heading',    text: 'A Section Heading' },
+//      { type: 'paragraph',  text: 'More text here...' },
+//      { type: 'quote',      text: 'A standout quote or highlight.' },
+//      { type: 'list',       items: ['Point one', 'Point two', 'Point three'] },
+//      { type: 'subheading', text: 'A Smaller Sub-heading' },
+//      { type: 'paragraph',  text: 'Closing thoughts...' },
+//    ],
+//  },
+//
+// ── CONTENT BLOCK TYPES ─────────────────────────────────────────
+//   paragraph  → regular body text
+//   heading    → large purple section title
+//   subheading → smaller section title
+//   quote      → styled blockquote with left border
+//   list       → bullet list  (use 'items' array instead of 'text')
+//
+// ════════════════════════════════════════════════════════════════
 
 const blogPosts = [
+
+  // ── ADD NEW POSTS HERE (newest at the top) ───────────────────
+
   {
     slug: 'major-league-cricket-2024',
     category: 'Cricket',
@@ -24,6 +59,7 @@ const blogPosts = [
       { type: 'paragraph', text: 'टूर्नामेंट के फाइनल में रोमांचक मुकाबला देखने को मिला जहां दर्शकों को क्रिकेट का असली मजा आया। एमएलसी ने साबित किया कि अमेरिका में भी क्रिकेट की जड़ें मजबूत हो रही हैं।' },
     ],
   },
+
   {
     slug: 'india-women-7-wicket-win-pakistan',
     category: 'Cricket',
@@ -42,6 +78,7 @@ const blogPosts = [
       { type: 'paragraph', text: "This victory not only gave India two crucial points but also sent a strong message to the other teams in the tournament. India look like strong contenders for the Asia Cup title this year." },
     ],
   },
+
   {
     slug: 'hardik-pandya-natasha-divorce',
     category: 'Cricket',
@@ -56,10 +93,11 @@ const blogPosts = [
       { type: 'paragraph', text: 'Both Hardik and Natasha took to their respective social media handles to confirm the news, asking fans and media to respect their privacy during this difficult time. The couple, who got married in 2020, have a son together named Agastya.' },
       { type: 'quote', text: 'After 4 years of being together, Natasha and I have decided to part ways. We tried our best together and are proud of what we built. Our priority is and will always be Agastya.' },
       { type: 'heading', text: 'Impact on Cricket' },
-      { type: 'paragraph', text: "Despite the personal turmoil, Hardik has continued to perform for the Indian cricket team. His ability to separate personal life from professional commitments has been praised by teammates and coaches alike. The cricketing fraternity has largely shown support for both individuals during this challenging period." },
+      { type: 'paragraph', text: "Despite the personal turmoil, Hardik has continued to perform for the Indian cricket team. His ability to separate personal life from professional commitments has been praised by teammates and coaches alike." },
       { type: 'paragraph', text: 'Fans across the country have expressed their support for both Hardik and Natasha, wishing them well as they navigate this new chapter in their lives.' },
     ],
   },
+
 ];
 
 export default blogPosts;
