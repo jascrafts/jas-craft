@@ -11,6 +11,15 @@ const BlogPage = () => (
     <main className="pt-32 pb-28 px-6">
       <div className="max-w-7xl mx-auto">
 
+        {/* Back link */}
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-sm font-bold mb-10 hover:opacity-80 transition-opacity"
+          style={{ color: '#8B6BB5', textDecoration: 'none' }}
+        >
+          <ArrowRight size={15} style={{ transform: 'rotate(180deg)' }} /> Back to Home
+        </Link>
+
         {/* Header */}
         <div className="text-center mb-20">
           <span

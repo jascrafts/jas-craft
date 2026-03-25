@@ -9,12 +9,15 @@ import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import ContactForm from './components/ContactForm';
 import CTA from './components/CTA';
+import OurTeam from './components/OurTeam';
 import Footer from './components/Footer';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
 import BlogPage from './pages/BlogPage';
 import BlogPost from './pages/BlogPost';
+import TeamPage from './pages/TeamPage';
+import WorkPage from './pages/WorkPage';
 
 const Home = () => (
   <div className="min-h-screen text-white" style={{ background: '#0D0D0F' }}>
@@ -25,6 +28,7 @@ const Home = () => (
       <Services />
       <Timeline />
       <ImpactStats />
+      <OurTeam />
       <Testimonials />
       <Blog />
       <ContactForm />
@@ -44,6 +48,8 @@ function App() {
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/team" element={<TeamPage />} />
+        <Route path="/work" element={<WorkPage />} />
       </Routes>
     </BrowserRouter>
   );

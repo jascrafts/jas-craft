@@ -1,45 +1,10 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, X, ExternalLink } from 'lucide-react';
+import { Play, X, ExternalLink, ArrowRight } from 'lucide-react';
+import workVideos from '../data/workVideos';
 
-// ─── Add/edit your videos here ───────────────────────────────────────────────
-// id: YouTube video ID from https://www.youtube.com/watch?v=VIDEO_ID
-const VIDEOS = [
-  {
-    id: 'a9t97923JRc',
-    brand: 'BJMC',
-    industry: 'Radio Jockey',
-    title: 'Become a Radio Jockey with BJMC at LLDIMS | Admissions Open 2025-26 | GGSIPU',
-    ongoing: false,
-    stats: [
-      { value: '46%',    label: 'popular' },
-      { value: '21K+', label: 'views', purple: true },
-    ],
-  },
-  {
-    id: '/abs.mp4',
-    thumb: '/absthumb.png',
-    brand: 'ABS',
-    industry: 'HeadPhones',
-    title: 'Wherever you go, let the music lead the way. In a World Full of Noise, I Choose My Own Melody',
-    ongoing: true,
-    stats: [
-      { value: '26',   label: 'Meetings Booked' },
-      { value: '67%', label: 'ROI', purple: true },
-    ],
-  },
-  {
-    id: 'tbrCUDAki6M',
-    brand: 'NEET',
-    industry: 'collage',
-    title: 'NEET PG 2025 Result Out 🚨 | Score, Rank, Cut-Off & Counselling Updates',
-    ongoing: false,
-    stats: [
-      { value: '43%',    label: 'popular' },
-      { value: '12K', label: 'views', purple: true },
-    ],
-  },
-];
+// ─── Add/edit your videos in src/data/workVideos.js ──────────────────────────
 
 const isLocal = (id) => id.startsWith('/');
 const thumb = (id) => isLocal(id) ? null : `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
@@ -210,16 +175,23 @@ const ImpactStats = () => {
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="relative text-center mb-16">
           <h2 className="text-5xl md:text-7xl font-black uppercase text-white mb-4">Our Work</h2>
           <p className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Real campaigns. Real results. Watch how we grow brands.
           </p>
+          <Link
+            to="/work"
+            className="inline-flex items-center gap-2 text-sm font-bold px-6 py-2.5 rounded-xl transition-all hover:opacity-80 mt-6 md:mt-0 md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2"
+            style={{ background: 'linear-gradient(135deg, #8B6BB5, #E8956D)', color: '#fff' }}
+          >
+            View Our Work <ArrowRight size={15} />
+          </Link>
         </div>
 
         {/* 3 video cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {VIDEOS.map((v, i) => (
+          {workVideos.map((v, i) => (
             <VideoCard key={v.id} v={v} index={i} onPlay={setPlaying} />
           ))}
         </div>
@@ -230,4 +202,5 @@ const ImpactStats = () => {
   );
 };
 
+export { VideoCard, VideoModal, isLocal, thumb };
 export default ImpactStats;
