@@ -13,6 +13,8 @@ import Footer from './components/Footer';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CookiePolicy from './pages/CookiePolicy';
+import BlogPage from './pages/BlogPage';
+import BlogPost from './pages/BlogPost';
 
 const Home = () => (
   <div className="min-h-screen text-white" style={{ background: '#0D0D0F' }}>
@@ -40,6 +42,8 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
     </BrowserRouter>
   );
