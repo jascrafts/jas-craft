@@ -1,3 +1,5 @@
+import Seo from '../components/Seo';
+
 const Section = ({ title, children }) => (
   <div style={{ marginBottom: '40px' }}>
     <h2 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: '#8B6BB5' }}>{title}</h2>
@@ -7,6 +9,11 @@ const Section = ({ title, children }) => (
 
 const CookiePolicy = () => (
   <div style={{ background: '#0D0D0F', minHeight: '100vh', color: '#fff', padding: '80px 24px' }}>
+    <Seo
+      title="Cookie Policy"
+      description="What cookies JAS Craft uses and why. A simple explanation of how we handle cookies on our website."
+      path="/cookie-policy"
+    />
     <div style={{ maxWidth: '820px', margin: '0 auto' }}>
       <a href="/" style={{ color: '#8B6BB5', fontSize: '14px', fontWeight: 700, textDecoration: 'none', display: 'inline-block', marginBottom: '40px' }}>← Back to Home</a>
 

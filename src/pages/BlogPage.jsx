@@ -3,10 +3,16 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Seo from '../components/Seo';
 import blogPosts from '../data/blogPosts';
 
 const BlogPage = () => (
   <div style={{ background: '#0D0D0F', minHeight: '100vh', color: '#fff' }}>
+    <Seo
+      title="Blog — Insights & Stories"
+      description="Insights, strategies and stories from the JAS Craft team — covering brand growth, digital marketing and the moments we love along the way."
+      path="/blog"
+    />
     <Navbar />
     <main className="pt-32 pb-28 px-6">
       <div className="max-w-7xl mx-auto">
@@ -55,6 +61,8 @@ const BlogPage = () => (
                   <img
                     src={post.thumb}
                     alt={post.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>

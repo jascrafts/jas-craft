@@ -72,6 +72,10 @@ ${form.message}`
                     <img
                       key={i}
                       src={img}
+                      loading="lazy"
+                      decoding="async"
+                      width="44"
+                      height="44"
                       className="w-11 h-11 rounded-full object-cover"
                       style={{ border: '2px solid #141418' }}
                       alt={`Team member ${i + 1}`}

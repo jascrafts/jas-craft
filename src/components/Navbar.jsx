@@ -72,7 +72,7 @@ const Navbar = () => {
           className="flex items-center gap-2"
           style={{ textDecoration: 'none' }}
         >
-          <img src="/logo.png" alt="JAS Craft" style={{ height: '36px', width: 'auto', objectFit: 'contain', display: 'block' }} />
+          <img src="/logo.png" alt="JAS Craft" fetchPriority="high" decoding="async" style={{ height: '36px', width: 'auto', objectFit: 'contain', display: 'block' }} />
           <span style={{ color: '#fff', fontSize: '15px', fontWeight: 900, letterSpacing: '-0.01em' }}>JAS Craft</span>
         </a>
 

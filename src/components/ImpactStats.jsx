@@ -26,19 +26,23 @@ function VideoCard({ v, index, onPlay }) {
             <img
               src={v.thumb}
               alt={v.title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
             <video
               src={v.id}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              muted playsInline preload="metadata"
+              muted playsInline preload="none"
             />
           )
         ) : (
           <img
             src={thumb(v.id)}
             alt={v.title}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             onError={e => { e.target.src = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`; }}
           />

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jascraft.in/sitemap.xml

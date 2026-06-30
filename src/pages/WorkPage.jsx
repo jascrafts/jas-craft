@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Seo from '../components/Seo';
 import { VideoCard, VideoModal } from '../components/ImpactStats';
 import workVideos from '../data/workVideos';
 
@@ -16,6 +17,11 @@ const WorkPage = () => {
 
   return (
     <div style={{ background: '#0D0D0F', minHeight: '100vh', color: '#fff' }}>
+      <Seo
+        title="Our Work — Video Production & Brand Campaigns"
+        description="Explore JAS Craft's portfolio of brand films, social campaigns and video production work across industries. See how we turn ambitions into measurable growth."
+        path="/work"
+      />
       <Navbar />
       <main className="pt-32 pb-28 px-6">
         <div className="max-w-7xl mx-auto">

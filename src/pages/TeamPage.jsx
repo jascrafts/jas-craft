@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Linkedin, Instagram } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Seo from '../components/Seo';
 import teamMembers from '../data/teamMembers';
 
 const LandscapeCard = ({ member, idx }) => (
@@ -20,6 +21,8 @@ const LandscapeCard = ({ member, idx }) => (
       <img
         src={member.avatar}
         alt={member.name}
+        loading="lazy"
+        decoding="async"
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
       {/* gradient overlay on right edge */}
@@ -76,6 +79,11 @@ const LandscapeCard = ({ member, idx }) => (
 
 const TeamPage = () => (
   <div style={{ background: '#0D0D0F', minHeight: '100vh', color: '#fff' }}>
+    <Seo
+      title="Our Team — Meet the JAS Craft Crew"
+      description="Meet the JAS Craft team — content strategists, performance marketers, videographers and editors crafting brand growth for ambitious businesses."
+      path="/team"
+    />
     <Navbar />
     <main className="pt-32 pb-28 px-6">
       <div className="max-w-5xl mx-auto">

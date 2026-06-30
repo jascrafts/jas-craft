@@ -2,7 +2,18 @@ import { useParams, Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Seo from '../components/Seo';
 import blogPosts from '../data/blogPosts';
+import { articleSchema, breadcrumbSchema } from '../seo/structuredData';
+
+// 'July 30, 2024' -> '2024-07-30' for schema.org datePublished. Reads local
+// date components to avoid a UTC timezone rollback to the previous day.
+const toIsoDate = (display) => {
+  const d = new Date(display);
+  if (Number.isNaN(d.getTime())) return undefined;
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+};
 
 const renderBlock = (block, i) => {
   switch (block.type) {
@@ -62,6 +73,7 @@ const BlogPost = () => {
   if (!post) {
     return (
       <div style={{ background: '#0D0D0F', minHeight: '100vh', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Seo title="Post not found" path={`/blog/${slug}`} noindex />
         <div className="text-center">
           <p style={{ color: 'rgba(255,255,255,0.4)', marginBottom: '20px' }}>Post not found.</p>
           <Link to="/blog" style={{ color: '#8B6BB5', fontWeight: 700, textDecoration: 'none' }}>← Back to Blog</Link>
@@ -70,8 +82,33 @@ const BlogPost = () => {
     );
   }
 
+  const postPath = `/blog/${post.slug}`;
+  const publishedIso = toIsoDate(post.date);
+
   return (
     <div style={{ background: '#0D0D0F', minHeight: '100vh', color: '#fff' }}>
+      <Seo
+        title={post.title}
+        description={post.excerpt}
+        path={postPath}
+        image={post.thumb}
+        type="article"
+        article={{ publishedTime: publishedIso, section: post.category }}
+        jsonLd={[
+          articleSchema({
+            title: post.title,
+            description: post.excerpt,
+            image: post.thumb,
+            url: postPath,
+            datePublished: publishedIso,
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Blog', path: '/blog' },
+            { name: post.title, path: postPath },
+          ]),
+        ]}
+      />
       <Navbar />
       <main className="pt-32 pb-28 px-6">
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
@@ -108,7 +145,7 @@ const BlogPost = () => {
 
           {/* Hero image */}
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: '16/7' }}>
-            <img src={post.thumb} alt={post.title} className="w-full h-full object-cover" />
+            <img src={post.thumb} alt={post.title} fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
           </div>
 
           {/* Body */}

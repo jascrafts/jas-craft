@@ -1,10 +1,8 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+import { ViteReactSSG } from 'vite-react-ssg'
+import { routes } from './App'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+// ViteReactSSG returns the createRoot entry the framework calls on both
+// the server (pre-render) and the client (hydrate). In `vite` dev this
+// behaves as a normal SPA; `vite-react-ssg build` pre-renders each route.
+export const createRoot = ViteReactSSG({ routes })

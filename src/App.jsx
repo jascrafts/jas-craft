@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import EngineerGrowth from './components/EngineerGrowth';
@@ -19,9 +19,25 @@ import BlogPost from './pages/BlogPost';
 import TeamPage from './pages/TeamPage';
 import WorkPage from './pages/WorkPage';
 import ScrollToTop from './components/ScrollToTop';
+import Seo from './components/Seo';
+import blogPosts from './data/blogPosts';
+import { organizationSchema, websiteSchema } from './seo/structuredData';
+
+// Root layout — wraps every route. Scroll restoration lives here and
+// the matched route renders into <Outlet />.
+const RootLayout = () => (
+  <>
+    <ScrollToTop />
+    <Outlet />
+  </>
+);
 
 const Home = () => (
   <div className="min-h-screen text-white" style={{ background: '#0D0D0F' }}>
+    <Seo
+      path="/"
+      jsonLd={[organizationSchema, websiteSchema]}
+    />
     <Navbar />
     <main>
       <Hero />
@@ -39,22 +55,25 @@ const Home = () => (
   </div>
 );
 
-function App() {
-  return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/cookie-policy" element={<CookiePolicy />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/team" element={<TeamPage />} />
-        <Route path="/work" element={<WorkPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default App;
+// vite-react-ssg consumes this route config to pre-render each path to
+// static HTML. `getStaticPaths` enumerates the dynamic blog routes.
+export const routes = [
+  {
+    path: '/',
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'privacy-policy', element: <PrivacyPolicy /> },
+      { path: 'terms-of-service', element: <TermsOfService /> },
+      { path: 'cookie-policy', element: <CookiePolicy /> },
+      { path: 'blog', element: <BlogPage /> },
+      {
+        path: 'blog/:slug',
+        element: <BlogPost />,
+        getStaticPaths: () => blogPosts.map((post) => `/blog/${post.slug}`),
+      },
+      { path: 'team', element: <TeamPage /> },
+      { path: 'work', element: <WorkPage /> },
+    ],
+  },
+];

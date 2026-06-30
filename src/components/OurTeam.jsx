@@ -20,7 +20,7 @@ const TeamCard = ({ member, idx }) => (
     />
     <div className="relative mb-6">
       <div className="w-36 h-36 rounded-full overflow-hidden" style={{ border: '2px solid rgba(123,94,167,0.4)' }}>
-        <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" />
+        <img src={member.avatar} alt={member.name} loading="lazy" decoding="async" width="144" height="144" className="w-full h-full object-cover" />
       </div>
     </div>
     <h3 className="text-lg font-black text-white mb-1">{member.name}</h3>

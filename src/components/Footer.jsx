@@ -18,6 +18,8 @@ const Footer = () => {
                 <img
                   src="/logo.png"
                   alt="JAS Craft"
+                  loading="lazy"
+                  decoding="async"
                   style={{ height: '56px', width: 'auto', objectFit: 'contain' }}
                 />
                 <span style={{ color: '#fff', fontSize: '22px', fontWeight: 900, letterSpacing: '-0.01em', lineHeight: 1 }}>

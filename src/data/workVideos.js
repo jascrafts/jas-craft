@@ -21,7 +21,7 @@ const workVideos = [
   },
   {
     id: '/abs.mp4',
-    thumb: '/absthumb.png',
+    thumb: '/absthumb.jpg',
     brand: 'ABS',
     industry: 'HeadPhones',
     title: 'Wherever you go, let the music lead the way. In a World Full of Noise, I Choose My Own Melody',

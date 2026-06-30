@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "build": "node scripts/generate-sitemap.mjs && vite-react-ssg build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -14,7 +16,7 @@
     "lucide-react": "^0.577.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.13.1"
+    "react-router-dom": "^6.30.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -28,7 +30,9 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "postcss": "^8.5.8",
+    "sharp": "^0.35.2",
     "tailwindcss": "^4.2.1",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vite-react-ssg": "^0.9.0"
   }
 }
